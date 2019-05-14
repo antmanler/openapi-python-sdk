@@ -292,6 +292,9 @@ class OrderParams(object):
         if self.account:
             params['account'] = self.account
 
+        if self.id:
+            params['id'] = self.id
+
         if self.order_id:
             params['order_id'] = self.order_id
 
