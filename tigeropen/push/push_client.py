@@ -159,6 +159,8 @@ class PushClient(object):
                                 continue
                             if key in QUOTE_KEYS_MAPPINGS:
                                 items.append((QUOTE_KEYS_MAPPINGS.get(key), value))
+                        if hour_trading:
+                            items.append(('latest_price', data['hourTradingLatestPrice']))
                         if items:
                             self.quote_changed(symbol, items, hour_trading)
             elif response_type == str(ResponseType.SUBSCRIBE_ASSET.value):
